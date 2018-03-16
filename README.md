@@ -1,6 +1,21 @@
 HW2:
 
-Given N training examples in 2 categories \{(\mathbf{x}_1, y_1),\ldots,(\mathbf{x}_N,y_N)\} { ( x 1 , y 1 ) , … , ( x N , y N ) } , your code should implement backpropagation using the cross-entropy loss (see Assignment 1 for the formula) on top of a sigmoid layer: (e.g. p(c_1|x)=\frac{1}{1+\exp(-f(x))}, p(c_2|x)=\frac{1}{1+\exp(f(x))} p ( c 1 | x ) = 1 1 + exp ⁡ ( − f ( x ) ) , p ( c 2 | x ) = 1 1 + exp ⁡ ( f ( x ) ) ), where you should train for an output f(x)=\mathbf{w}_{2}^\top g(\mathbf{W}_1^\top \mathbf{x}+b)+c f ( x ) = w 2 ⊤ g ( W 1 ⊤ x + b ) + c . LaTeX: g\left(x\right)=\max\left(x,0\right) g ( x ) = max ( x , 0 )  is the ReLU activation function (note Assignment #1 used a sigmoid activation but here it's ReLU), \mathbf{W}_1 W 1  is a matrix with the number of rows equal to the number of hidden units, and the number of columns equal to the input dimensionality.
+Given N training examples in 2 categories, your code should implement backpropagation using the cross-entropy loss on top of a sigmoid layer. The hidden layer should have a ReLU activation function.
+
+Write a function that evaluates the trained network, as well as computes all the subgradients.
+
+Write a function that performs stochastic mini-batch gradient descent training.
+
+Train the network on the attached 2-class dataset extracted from CIFAR-10: (data can be found in the cifar-2class-py2.zip file on Canvas.). The data has 10,000 training examples in 3072 dimensions and 2,000 testing examples. For this assignment, just treat each dimension as uncorrelated to each other. Train on all the training examples, tune your parameters (number of hidden units, learning rate, mini-batch size, momentum) until you reach a good performance on the testing set. What accuracy can you achieve? 
+
+Training Monitoring: For each epoch in training, your function should evaluate the training objective, testing objective, training misclassification error rate (error is 1 for each example if misclassifies, 0 if correct), testing misclassification error rate (5 points).
+
+Tuning Parameters: please create three figures with following requirements. Save them into jpg format:
+i) test accuracy with different number of batch size
+ii)test accuracy with different learning rate
+iii) test accuracy with different number of hidden units
+
+Discussion about the performance of your neural network.
 
 
 
